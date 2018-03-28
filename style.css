@@ -1,49 +1,117 @@
 /*
 Theme Name: PinPoint Wallet
 */
-body {
-     font-family:Arial, Sans-Serif;
+body{
+    font-family: Arial, Helvetica, Georgia, Sans-serif;
+    font-size: 12px;
+    background: #d9d9d9;
+    color: #000000;
 }
-.clearfix:before, .clearfix:after{
-     content: "";
-     display: table;
+
+a:link, a:visited{
+    text-decoration: none;
+    color: #000000;
 }
-.clearfix:after{
-     clear: both;
-}
-a{
-     color:#0067ab;
-     text-decoration:none;
-}
+
 a:hover{
-     text-decoration:underline;
+    color: #5f5f5f;
 }
-.form{
-     width: 300px;
-     margin: 0 auto;
+
+h1 {
+    font-size: 54px;
 }
-input[type='text'], input[type='email'],
-input[type='password'] {
-     width: 200px;
-     border-radius: 2px;
-     border: 1px solid #CCC;
-     padding: 10px;
-     color: #333;
-     font-size: 14px;
-     margin-top: 10px;
+
+h3 {
+    font-size: 24px;
 }
-input[type='submit']{
-     padding: 10px 25px 8px;
-     color: #fff;
-     background-color: #0067ab;
-     text-shadow: rgba(0,0,0,0.24) 0 1px 0;
-     font-size: 16px;
-     box-shadow: rgba(255,255,255,0.24) 0 2px 0 0 inset,#fff 0 1px 0 0;
-     border: 1px solid #0164a5;
-     border-radius: 2px;
-     margin-top: 10px;
-     cursor:pointer;
+
+#wrapper{
+    margin: 0 auto;
+    width: 750px;
+    text-align: left;
+    background: #fff;
+    padding: 20px;
+
 }
-input[type='submit']:hover {
-     background-color: #024978;
+
+#header{
+    width: 750px;
+    height: 100px;
+}
+
+#blog{
+    float: left;
+    width: 520px;
+    padding: 0 10px 10px 10px;
+}
+
+.sidebar{
+    float: left;
+    width: 200px;
+    margin: 0 0 0 10px;
+    font-size: 14px;
+    list-style: none;
+}
+
+#footer{
+    clear: both;
+    text-align: center;
+    height: 50px;
+    background: #ccc;
+    padding: 10px;
+}
+.nav{
+    width:750px;
+    background: #000;
+    display:block;
+    float:left;
+    position:relative;
+}
+
+.nav ul{
+    list-style:none;
+}
+
+.nav li{
+    float:left;
+    position:relative;
+}
+.nav a{
+    display:block;
+    text-decoration:none;
+    color:#fff;
+    padding:0 15px 10px 0;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.nav ul ul{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    float:left;
+    z-index:99999;
+    background: #212121;
+}
+
+.nav ul ul ul{
+    top: 30%;
+    left:100%;
+    background: #343434;
+}
+
+.nav ul ul a{
+    height:auto;
+    line-height:1em;
+    padding:10px;
+    width:130px;
+}
+
+.nav li:hover > a,.nav ul ul:hover > a{
+    color:#ccc;
+}
+
+.nav ul li:hover > ul{
+    display:block;
 }

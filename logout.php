@@ -1,9 +1,14 @@
 <?php
+
+// Inialize session
 session_start();
-// Destroying All Sessions
-if(session_destroy())
-{
-// Redirecting To Home Page
-header("Location: login.php");
-}
+
+// Delete certain session
+unset($_SESSION['username']);
+// Delete all session variables
+// session_destroy();
+
+// Jump to login page
+header('Location: index.php');
+
 ?>

@@ -1,20 +1,32 @@
 <?php
-//include auth.php file on all secure pages
-include("auth.php");
+
+// Inialize session
+session_start();
+
+// Check, if user is already login, then jump to secured page
+if (isset($_SESSION['username'])) {
+header('Location: securedpage.php');
+}
+
 ?>
-<!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>Welcome Home</title>
-<link rel="stylesheet" href="style.css" />
+<title>PinPoint</title>
 </head>
+
 <body>
-<div class="form">
-<p>Welcome <?php echo $_SESSION['username']; ?>!</p>
-<p>This is secure area.</p>
-<p><a href="dashboard.php">Dashboard</a></p>
-<a href="logout.php">Logout</a>
-</div>
+
+ <h3>Welcome to PinPoint</h3>
+
+<table border="0">
+<form method="POST" action="loginproc.php">
+<tr><td>Username</td><td>:</td><td><input type="text" name="username" size="20">        </td></tr>
+<tr><td>Password</td><td>:</td><td><input type="password" name="password"     size="20">    </td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td><input type="submit" value="Login"></td></tr>
+</form>
+</table>
+
 </body>
+
 </html>
