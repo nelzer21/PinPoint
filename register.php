@@ -100,13 +100,154 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Sign Up</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
+    body {
+       margin:0 auto;
+       height: 100vh;
+       padding:0px;
+       text-align:center;
+       width:100%;
+       font-family: "Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
+       color:white;
+     }
+
+     .bg {
+         background-image: url("wallet.jpg");
+         height: 100%;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+     }
+
+    #wrapper {
+       margin:0 auto;
+       padding:0px;
+       text-align:center;
+       width:995px;
+     }
+
+    #wrapper h1 {
+     margin-top:50px;
+     font-size:45px;
+     color:#424949;
+    }
+
+    #wrapper h1 p {
+      font-size:18px;
+    }
+
+    .form_div {
+      width:330px;
+      margin-left:320px;
+      padding:10px;
+      background-color:#33A164;
+      box-shadow: 2px 2px 1px #545454;
+    }
+
+    .form_div .form_label {
+      margin:100px;
+      margin-bottom:30px;
+      font-size:25px;
+      font-weight:bold;
+      color:white;
+      text-decoration:underline;
+    }
+
+    .form_div input[type="text"],input[type="password"] {
+      width:300px;
+      height:40px;
+      border-radius:2px;
+      font-size:17px;
+      padding-left:5px;
+      border:none;
+    }
+
+    .form_div input[type="submit"] {
+      width:230px;
+      height:40px;
+      border:none;
+      border-radius:5px;
+      font-size:17px;
+      background-color:#1d7042;
+      color:white;
+      font-weight:bold;
+    }
+
+    @media only screen and (min-width:700px) and (max-width:995px) {
+        #wrapper{
+          width:100%;
+        }
+        #wrapper h1{
+          font-size:30px;
+        }
+    .form_div {
+      width:50%;
+      margin-left:25%;
+      padding-left:0px;
+      padding-right:0px;
+    }
+
+    .form_div input[type="text"],input[type="password"] {
+      width:80%;
+      }
+    .form_div textarea {
+      width:80%;
+      }
+    .form_div input[type="submit"] {
+      width:80%;
+      }
+    }
+    @media only screen and (min-width:400px) and (max-width:699px) {
+      #wrapper {
+        width:100%;
+      }
+      #wrapper h1 {
+        font-size:30px;
+      }
+
+    .form_div {
+      width:60%;
+      margin-left:20%;
+    }
+
+    .form_div input[type="text"],input[type="password"] {
+      width:80%;
+    }
+
+    .form_div input[type="submit"] {
+      width:80%;
+      }
+
+    @media only screen and (min-width:100px) and (max-width:399px) {
+      #wrapper {
+        width:100%;
+      }
+      #wrapper h1 {
+        font-size:25px;
+      }
+
+    .form_div {
+      width:90%;
+      margin-left:5%;
+      padding-left:0px;
+      padding-right:0px;
+      }
+
+    .form_div input[type="text"],input[type="password"] {
+      width:80%;
+      }
+
+    .form_div input[type="submit"] {
+      width:80%;
+    }
+
     </style>
 </head>
 <body>
     <div class="wrapper">
-        <h2>Sign Up</h2>
+      <div id="wrapper">
+        <div class="form_div">
+    <p class="form_label"><h2>Sign Up</h2></p>
+    <form method="post" action="">
         <p>Please fill this form to create an account.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">

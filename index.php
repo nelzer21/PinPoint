@@ -76,10 +76,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 ?>
-<?php
-$profpic = "wallet.jpg";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,8 +83,6 @@ $profpic = "wallet.jpg";
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
-        /* body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; } */
         body {
            margin:0 auto;
            height: 100vh;
@@ -100,7 +94,7 @@ $profpic = "wallet.jpg";
          }
 
          .bg {
-             background-image: url(<?php echo $profpic;?>);
+             background-image: url("wallet.jpg");
              height: 100%;
              background-position: center;
              background-repeat: no-repeat;
@@ -228,9 +222,7 @@ $profpic = "wallet.jpg";
         .form_div input[type="submit"] {
           width:80%;
         }
-        p > a {
-          color: #f0f8ff !important;
-        }
+
     </style>
 </head>
 <body>
