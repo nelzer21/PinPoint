@@ -94,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          }
 
          .bg {
-             background-image: url("wallet.jpg");
+             background-image: url("http://pinpointwallet.com/wp-content/uploads/2018/04/wallet.jpg");
              height: 100%;
              background-position: center;
              background-repeat: no-repeat;
