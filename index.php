@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT username, password FROM users WHERE username = ?";
+        $sql = "SELECT username, password FROM users WHERE username = " + $username;
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -45,13 +45,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){
+                       if(password_verify($username, $hashed_password)){
+                      //  if("Brandy15!", "Brandy15!"){
                             /* Password is correct, so start a new session and
                             save the username to the session */
                             session_start();
                             $_SESSION['username'] = $username;
-                            header("location: welcome.php");
+                            // header('location:/wp-content/themes/App-website/test.html');
+                            header('location:test.html');
                         } else{
+                          //  header("location: welcome.php");
                             // Display an error message if password is not valid
                             $password_err = 'The password you entered was not valid.';
                         }
@@ -73,21 +76,168 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 ?>
+<?php
+$profpic = "wallet.jpg";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
+        /* body{ font: 14px sans-serif; }
+        .wrapper{ width: 350px; padding: 20px; } */
+        body {
+           margin:0 auto;
+           height: 100vh;
+           padding:0px;
+           text-align:center;
+           width:100%;
+           font-family: "Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
+           color:white;
+         }
+
+         .bg {
+             background-image: url(<?php echo $profpic;?>);
+             height: 100%;
+             background-position: center;
+             background-repeat: no-repeat;
+             background-size: cover;
+         }
+
+        #wrapper {
+           margin:0 auto;
+           padding:0px;
+           text-align:center;
+           width:995px;
+         }
+
+        #wrapper h1 {
+         margin-top:50px;
+         font-size:45px;
+         color:#424949;
+        }
+
+        #wrapper h1 p {
+          font-size:18px;
+        }
+
+        .form_div {
+          width:330px;
+          margin-left:320px;
+          padding:10px;
+          background-color:#33A164;
+          box-shadow: 2px 2px 1px #545454;
+        }
+
+        .form_div .form_label {
+          margin:100px;
+          margin-bottom:30px;
+          font-size:25px;
+          font-weight:bold;
+          color:white;
+          text-decoration:underline;
+        }
+
+        .form_div input[type="text"],input[type="password"] {
+          width:300px;
+          height:40px;
+          border-radius:2px;
+          font-size:17px;
+          padding-left:5px;
+          border:none;
+        }
+
+        .form_div input[type="submit"] {
+          width:230px;
+          height:40px;
+          border:none;
+          border-radius:5px;
+          font-size:17px;
+          background-color:#1d7042;
+          color:white;
+          font-weight:bold;
+        }
+
+        @media only screen and (min-width:700px) and (max-width:995px) {
+            #wrapper{
+              width:100%;
+            }
+            #wrapper h1{
+              font-size:30px;
+            }
+        .form_div {
+          width:50%;
+          margin-left:25%;
+          padding-left:0px;
+          padding-right:0px;
+        }
+
+        .form_div input[type="text"],input[type="password"] {
+          width:80%;
+          }
+        .form_div textarea {
+          width:80%;
+          }
+        .form_div input[type="submit"] {
+          width:80%;
+          }
+        }
+        @media only screen and (min-width:400px) and (max-width:699px) {
+          #wrapper {
+            width:100%;
+          }
+          #wrapper h1 {
+            font-size:30px;
+          }
+
+        .form_div {
+          width:60%;
+          margin-left:20%;
+        }
+
+        .form_div input[type="text"],input[type="password"] {
+          width:80%;
+        }
+
+        .form_div input[type="submit"] {
+          width:80%;
+          }
+
+        @media only screen and (min-width:100px) and (max-width:399px) {
+          #wrapper {
+            width:100%;
+          }
+          #wrapper h1 {
+            font-size:25px;
+          }
+
+        .form_div {
+          width:90%;
+          margin-left:5%;
+          padding-left:0px;
+          padding-right:0px;
+          }
+
+        .form_div input[type="text"],input[type="password"] {
+          width:80%;
+          }
+
+        .form_div input[type="submit"] {
+          width:80%;
+        }
+        p > a {
+          color: #f0f8ff !important;
+        }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <h2>Login</h2>
+  <div class="bg">
+    <div id="wrapper">
+      <div class="form_div">
+          <p class="form_label"><h2>Login</h2></p>
         <p>Please fill in your credentials to login.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
@@ -102,7 +252,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
+
             </div>
+            </br>
             <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
         </form>
     </div>
