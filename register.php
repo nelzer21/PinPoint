@@ -1,6 +1,12 @@
+<style>
+<?php include 'main.css'; ?>
+<?php include 'font-awesome.min.css'; ?>
+<?php include 'font.css'; ?>
+<?php include 'base.css'; ?>
+</style>
 <?php
 // Include config file
-require_once 'config.php';
+//require_once 'config.php';
 
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
@@ -94,183 +100,48 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-    body {
-       margin:0 auto;
-       height: 100vh;
-       padding:0px;
-       text-align:center;
-       width:100%;
-       font-family: "Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
-       color:white;
-     }
-
-     .bg {
-         background-image: url("http://pinpointwallet.com/wp-content/uploads/2018/04/wallet3.png");
-         height: 100%;
-         background-position: center;
-         background-repeat: no-repeat;
-         background-size: cover;
-     }
-
-    #wrapper {
-       margin:0 auto;
-       padding:0px;
-       text-align:center;
-       width:995px;
-     }
-
-    #wrapper h1 {
-     margin-top:50px;
-     font-size:45px;
-     color:#424949;
-    }
-
-    #wrapper h1 p {
-      font-size:18px;
-    }
-
-    .form_div {
-      width:330px;
-      margin-left:320px;
-      padding:10px;
-      background-color:#33A164;
-      box-shadow: 2px 2px 1px #545454;
-    }
-
-    .form_div .form_label {
-      margin:100px;
-      margin-bottom:30px;
-      font-size:25px;
-      font-weight:bold;
-      color:white;
-      text-decoration:underline;
-    }
-
-    .form_div input[type="text"],input[type="password"] {
-      width:300px;
-      height:40px;
-      border-radius:2px;
-      font-size:17px;
-      padding-left:5px;
-      border:none;
-    }
-
-    .form_div input[type="submit"] {
-      width:230px;
-      height:40px;
-      border:none;
-      border-radius:5px;
-      font-size:17px;
-      background-color:#1d7042;
-      color:white;
-      font-weight:bold;
-    }
-
-    @media only screen and (min-width:700px) and (max-width:995px) {
-        #wrapper{
-          width:100%;
-        }
-        #wrapper h1{
-          font-size:30px;
-        }
-    .form_div {
-      width:50%;
-      margin-left:25%;
-      padding-left:0px;
-      padding-right:0px;
-    }
-
-    .form_div input[type="text"],input[type="password"] {
-      width:80%;
-      }
-    .form_div textarea {
-      width:80%;
-      }
-    .form_div input[type="submit"] {
-      width:80%;
-      }
-    }
-    @media only screen and (min-width:400px) and (max-width:699px) {
-      #wrapper {
-        width:100%;
-      }
-      #wrapper h1 {
-        font-size:30px;
-      }
-
-    .form_div {
-      width:60%;
-      margin-left:20%;
-    }
-
-    .form_div input[type="text"],input[type="password"] {
-      width:80%;
-    }
-
-    .form_div input[type="submit"] {
-      width:80%;
-      }
-
-    @media only screen and (min-width:100px) and (max-width:399px) {
-      #wrapper {
-        width:100%;
-      }
-      #wrapper h1 {
-        font-size:25px;
-      }
-
-    .form_div {
-      width:90%;
-      margin-left:5%;
-      padding-left:0px;
-      padding-right:0px;
-      }
-
-    .form_div input[type="text"],input[type="password"] {
-      width:80%;
-      }
-
-    .form_div input[type="submit"] {
-      width:80%;
-    }
-
-    </style>
-</head>
+<html>
+	<head>
+		<title>Login</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="shortcut icon" href="img/logo.png"/>
+	</head>
 <body>
-    <div class="wrapper">
-      <div id="wrapper">
-        <div class="form_div">
-    <p class="form_label"><h2>Sign Up</h2></p>
-    <form method="post" action="">
-        <p>Please fill this form to create an account.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username</label>
-                <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
-                <span class="help-block"><?php echo $password_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                <label>Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
-                <span class="help-block"><?php echo $confirm_password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
-            </div>
-            <p>Already have an account? <a href="index.php">Login here</a>.</p>
-        </form>
-    </div>
+	</div>
+	<div class="background"></div>
+	<div class="backdrop"></div>
+	<div class="login-form-container" id="login-form">
+		<div class="login-form-content">
+			<div class="login-form-header">
+
+				<h3>Signup Today!</h3>
+			</div>
+			<form method="post" action="" class="login-form">
+				<div class="input-container">
+					<i class="fa fa-envelope"></i>
+					<input type="username" class="input" name="user" placeholder="Username"/>
+				</div>
+				<div class="input-container">
+					<i class="fa fa-lock"></i>
+					<input type="password"  id="login-password" class="input" name="password" placeholder="Password"/>
+					<i id="show-password" class="fa fa-eye"></i>
+				</div>
+					<div class="input-container">
+					<i class="fa fa-lock"></i>
+					<input type="confimpassword"  id="login-password" class="input" name="password" placeholder="Confim Password"/>
+					<i id="show-password" class="fa fa-eye"></i>
+				</div>
+					<div class="rememberme-container">
+					<input type="checkbox" name="rememberme" id="rememberme"/>
+					<label for="rememberme" class="rememberme"><span>Remember me</span></label>
+					<a class="member" href="'http://pinpointwallet.com/wp-content/themes/App-website/header.php">Already a member?</a>
+				</div>
+        <input class="button" type="button" value="Submit" onclick="window.location.href='http://pinpointwallet.com/wp-content/themes/App-website/welcome.php'"/>
+			</form>
+		</div>
+		<div class="attibution">
+			&copy; 2018 pinpointwallet.com
+		</div>
+	</div>
 </body>
 </html>
