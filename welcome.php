@@ -1,3 +1,10 @@
+<style>
+<?php include 'welcome.css'; ?>
+<?php include 'font-awesome.min.css'; ?>
+<?php include 'font.css'; ?>
+<?php include 'base.css'; ?>
+</style>
+
 <?php
 //require_once 'config.php';
 
@@ -15,175 +22,76 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+  <link rel="stylesheet" href="bootstrap.css">
 
 <style>
- #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
 
-         body {
-           margin:0 auto;
-           height: 100vh;
-           padding:0px;
-           text-align:center;
-           width:100%;
-           font-family: "Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
-           color:white;
-         }
+.image{
+ height:40%;
+ width:100%;
+ text-align:center;
+ padding-top:2px;
+ }
 
-        .bg {
-             background-image: url("http://pinpointwallet.com/wp-content/uploads/2018/04/wallet.jpg");
-             height: 100%;
-             background-position: center;
-             background-repeat: no-repeat;
-             background-size: cover;
-         }
-
-        #wrapper {
-           margin:0 auto;
-           padding:0px;
-           text-align:center;
-           width:995px;
-         }
-
-        #wrapper h1 {
-         margin-top:50px;
-         font-size:45px;
-         color:#424949;
-        }
-
-        #wrapper h1 p {
-          font-size:18px;
-        }
-
-
-        .form_div {
-          width:330px;
-          margin-left:320px;
-          padding:10px;
-          background-color:#33A164;
-          box-shadow: 2px 2px 1px #545454;
-        }
-
-        .form_div .form_label {
-          margin:100px;
-          margin-bottom:30px;
-          font-size:25px;
-          font-weight:bold;
-          color:white;
-          text-decoration:underline;
-        }
-
-        .form_div input[type=text], input[type=password] {
-          width:300px;
-          height:40px;
-          border-radius:2px;
-          font-size:17px;
-          padding-left:5px;
-          border:none;
-        }
-
-
-        .form_div input[type=submit] {
-          width:230px;
-          height:40px;
-          border:none;
-          border-radius:5px;
-          font-size:17px;
-          background-color:#1d7042;
-          color:white;
-          font-weight:bold;
-        }
-
-        @media only screen and (min-width:700px) and (max-width:995px) {
-            #wrapper{
-              width:100%;
-            }
-            #wrapper h1{
-              font-size:30px;
-            }
-        .form_div {
-          width:50%;
-          margin-left:25%;
-          padding-left:0px;
-          padding-right:0px;
-        }
-
-
-
-
-        .form_div input[type=text], input[type=password] {
-          width:80%;
-          }
-        .form_div textarea {
-          width:80%;
-          }
-        .form_div input[type=submit] {
-          width:80%;
-          }
-        }
-        @media only screen and (min-width:400px) and (max-width:699px) {
-          #wrapper {
-            width:100%;
-          }
-          #wrapper h1 {
-            font-size:30px;
-          }
-
-        .form_div {
-          width:60%;
-          margin-left:20%;
-        }
-
-        .form_div input[type=text], input[type=password] {
-          width:80%;
-        }
-
-        .form_div input[type=submit] {
-          width:80%;
-          }
-
-        @media only screen and (min-width:100px) and (max-width:399px) {
-          #wrapper {
-            width:100%;
-          }
-          #wrapper h1 {
-            font-size:25px;
-          }
-
-        .form_div {
-          width:90%;
-          margin-left:5%;
-          padding-left:0px;
-          padding-right:0px;
-          }
-
-        .form_div input[type=text], input[type=password] {
-          width:80%;
-          }
-
-        .form_div input[type=submit] {
-          width:80%;
-        }
-
-    </style>
-
+</style>
   </head>
-<body>
-  <div class="page-header">
-      <div class="bg">
-    <div id="wrapper">
-      <div class="form_div">
 
-        <h1>Hi</h1>
-        <h2>This is the welcome page</h2>
+<body>
+<div class="bg">
+	<div class="topnav" id="myTopnav">
+  <div class="dropdown">
+    <button class="dropbtn">My wallet
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Add wallet</a>
+      <a href="welcome.php">Ebony's wallet</a>
+      <a href="welcome.php">Nova's wallet</a>
+    </div>
+  </div> <button onclick="myFunction()">Wallet lock</button>
+     <li style="float:right"><a href="logout.php" class="btn btn-danger">Log out</a></li>
+     <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+	<div class="page-header">
+		 <div id="wrapper">
+			<div class="form_div">
+			  <h2>Welcome to PinPoint</h2>
+
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var txt;
+    if (confirm("Unlock wallet!")) {
+        txt = "Wallet is unlocked!";
+    } else {
+        txt = "Wallet is locked!";
+    }
+    document.getElementById("demo").innerHTML = txt;
+}
+</script>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+
+$(document).ready(function() {
+$("#draggable").draggable({helper: 'clone',
+stop: function(e) {
+    var point=new google.maps.Point(e.pageX,e.pageY);
+    var ll=overlay.getProjection().fromContainerPixelToLatLng(point);
+  alert('m');
+    }
+});
+
+</script>
          <!-- <b><?php echo htmlspecialchars($_SESSION['username']); ?></b>. Welcome to our site.</h1> -->
 
    <!--      <iframe
@@ -197,21 +105,24 @@
 
 </div>
 
+
+
+
+<div id="map"  ondrop="drop(event)" ondragover="allowDrop(event)" alt="map close up on Pennsylvina">
 </div>
-
-
-</div>
-
-<div id="map"> </div>
-
-
 
       <script>
 
       var map;
-      var source = {lat: 40.234, lng: -76.244};
-      var target = {lat: 40.241, lng: -75.283};
-      var mapLL = {lat:39.833 , lng: -98.583};
+      var source = {lat: 40.2414952, lng: -75.2837862};
+      var target = {lat: 39.9525839, lng: -75.1652215};
+      var mapLL = {lat:41.2033216 , lng: -77.1945247};
+      var dyLat;
+      var dyLng;
+	  var dropped=false;
+	  var iconTitle;
+	  var iconPath;
+	  var zoomedIn = false;
 
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -219,13 +130,88 @@
           zoom: 5
         });
 
-       	source= addMarker(source,'src',map,'1');
-		target=	addMarker(target,'trg',map,'2');
+       	source= addMarker(source,'src',map,'1','');
+		target=	addMarker(target,'trg',map,'2','');
+
+	 	google.maps.event.addListener(map, "click", function (event) {
+    		var latitude = event.latLng.lat();
+    		var longitude = event.latLng.lng();
+
+    		var dyPos=new google.maps.LatLng(latitude ,longitude );
+
+			dyPos=addMarker(dyPos,'dy',map,'3','');
+
+		}); //end addListener
+
+ 		google.maps.event.addListener(map, 'mousemove', function(event) {
+         	getCoordinates(event.latLng);
+           });
+
+	/*
+	google.maps.event.addListener(map, 'dragend', function(e)
+    {
+        alert("drop");
+        google.maps.event.trigger(map, 'click');
+    });
 
        }
 
+       google.maps.event.addListener(map, 'mouseup', function(e)
+    {
+        alert("mu");
+        google.maps.event.trigger(map, 'click');
+    });
+      */
+ }
 
-function addMarker(latlng,title,map,name) {
+function getCoordinates(pnt) {
+
+          dyLat = pnt.lat();
+          dyLng = pnt.lng();
+
+
+    	var dyPos1=new google.maps.LatLng(dyLat,dyLng);
+
+
+		if(dropped==true)
+		{
+			dyPos1=addMarker(dyPos1,iconTitle ,map,'3',iconPath);
+			dropped=false;
+		}
+ }
+
+function allowDrop(ev)
+{
+    ev.preventDefault();
+}
+
+function drag(ev)
+{
+	iconTitle=ev.target.id;
+	iconPath=ev.target.src;
+}
+
+function drop(ev)
+{
+  // ev.dataTransfer.setData("Text",ev.target.id);
+  dropped=true;
+
+ }
+
+
+function addMarker(latlng,title,map,name,icon) {
+
+
+if(icon!='')
+{
+ icon = {
+    url: icon, // url
+    scaledSize: new google.maps.Size(25, 25), // scaled size
+    origin: new google.maps.Point(0,0), // origin
+    anchor: new google.maps.Point(0, 0), // anchor
+    labelOrigin: new google.maps.Point(40,33)
+};
+};
 
     var marker = new google.maps.Marker({
     		id:name,
@@ -234,32 +220,102 @@ function addMarker(latlng,title,map,name) {
             title: title,
             label: title,
             draggable:true,
-            animation: google.maps.Animation.DROP
-    });
+            animation: google.maps.Animation.DROP,
+            icon:icon
+              });
 
 
     marker.addListener('drag', handleEvent);
- //   marker.addListener(marker,'dragend', dragEndEvent);
+   // marker.addListener('click', zoom);
+
+// add the double-click event listener
+google.maps.event.addListener(marker, 'dblclick', function(event){
+//marker.addListener('dblclick', function(event){
+
+    map = marker.getMap();
+
+    map.setCenter(marker.getPosition()); // set map center to marker position
+
+ if(zoomedIn==false)
+    smoothZoom(map, map.getZoom(),15,false); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
+   else
+  	smoothZoom(map, map.getZoom(),1,true);
+});
 
  return marker;
     }
 
 
+  function smoothZoom(map, level, cnt, mode)
+    {
+
+    var maxZoomIn = 11;
+    var maxZoomOut = 4;
+    var timeOut = 2000; //1000 is one second
+
+        if(mode == true)
+        {
+            if (cnt >= level) {
+                  return;
+            }
+            else
+            {
+                if((maxZoomOut + 2) <= cnt)
+                {
+                    var z = google.maps.event.addListener(map, 'zoom_changed', function(event)
+                    {
+                        google.maps.event.removeListener(z);
+                        map.setCenter(marker.getPosition());
+                        smoothZoom(map, level, cnt + 1, true);
+                    });
+                  //  setTimeout(function(){map.setZoom(cnt);}, timeOut);
+
+             	}
+                else
+                {
+                  zoomedIn=false;
+
+                    map.setZoom(cnt);
+                    smoothZoom(map, level, cnt + 1, true);
+                }
+            }
+        }
+        else
+        {
+
+            if (cnt < level) {
+
+                  return;
+            }
+            else
+            {
+                var z = google.maps.event.addListener(map, 'zoom_changed', function(event)
+                {
+                    google.maps.event.removeListener(z);
+                    map.setCenter(marker.getPosition());
+                     alert('f2');
+                    smoothZoom(map, level, cnt - 1, false);
+
+                });
+                if(maxZoomIn - 2 <= cnt)
+                {
+                	zoomedIn=true;
+                    map.setZoom(cnt);
+
+                }
+                else
+                {
+                   setTimeout(function(){map.setZoom(cnt);}, timeOut);
+
+               }
+
+            }
+        }
+    }
+
 function handleEvent(event) {
 
- // var source = {lat: 40.234, lng: -76.244};
-//alert (Math.abs(event.latLng.lat() - 40.234));
-//alert (Math.abs(event.latLng.lng()) - Math.abs( -76.244));
-
-//alert (this.id);
-//alert (source.position.lat());
-//alert (source.position.lng());
-//alert (target.position.lat());
-//alert (target.position.lng());
-
 	if(Math.abs(source.position.lat()) - (Math.abs( target.position.lat())) < 1 && (Math.abs(source.position.lng()) - Math.abs( target.position.lng())<1) )
-
-	//if((Math.abs(event.latLng.lat() - 40.234)) < 1 && (Math.abs(event.latLng.lng()) - Math.abs( -76.244)<1) )
 	{
  		source.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
 		target.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
@@ -274,10 +330,17 @@ function handleEvent(event) {
 
 
     </script>
+    <div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMEpyiM9DEtj33Ph4LtqOKXU4-MZ2GWh4&callback=initMap"
     async defer></script>
 
-
-    <p><a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a></p>
-</body>
+    <img id="Wallet1" height="150" width="150" src="wallet1.png" ondragstart="drag(event)"alt="navy closed wallet, can click and drag">
+	<img id="Wallet2" height="150" width="150" src="wallet2.png" ondragstart="drag(event)"alt="brown open wallet, can click and drag">
+	<img id="Wallet3" height="150" width="150" src="wallet3.png" ondragstart="drag(event)"alt="black thin wallet, can click and drag">
+	<img id="Wallet4" height="150" width="150" src="wallet4.png" ondragstart="drag(event)"alt="red closed wallet, can click and drag">
+	<img id="Wallet5" height="150" width="150" src="wallet5.png" ondragstart="drag(event)"alt="brown closed wallet, can click and drag">
+		</div>
+	</div>
+	</div>
+	</body>
 </html>

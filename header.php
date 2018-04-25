@@ -100,14 +100,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 				<h3>Welcome to PinPoint</h3>
 			</div>
+<!-- 			<form method="post" action="" class="login-form">
+  <fieldset>
+    <legend>Login form</legend>
+    <div>
+      <label for="username">Your username</label>
+	  <input type="text" id="username" aria-describedby="username-tip" required />
+	  <div role="tooltip" id="username-tip">Your username is your email address</div>
+	</div>
+	<div>
+	  <label for="password">Your password</label>
+	  <input type="text" id="password" aria-describedby="password-tip" required />
+	  <div role="tooltip" id="password-tip">Was emailed to you when you signed up</div>
+	</div>
+  </fieldset>
+</form> -->
 			<form method="post" action="" class="login-form">
 				<div class="input-container">
 					<i class="fa fa-envelope"></i>
 					<input type="username" class="input" name="user" placeholder="Username"/>
 				</div>
 				<div class="input-container">
-					<i class="fa fa-lock"></i>
-					<input type="password"  id="login-password" class="input" name="password" placeholder="Password"/>
+					<div class="input-container">
+
+					<input type="password" class="input" name="password" placeholder="Password" alt = "enter password"/>
 					<i id="show-password" class="fa fa-eye"></i>
 				</div>
 				<div class="rememberme-container">
@@ -117,7 +133,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				</div>
         <input class="button" type="button" value="Login" onclick="window.location.href='http://pinpointwallet.com/wp-content/themes/App-website/welcome.php'" />
         <input class="button" type="button" value="Signup" onclick="window.location.href= 'http://pinpointwallet.com/wp-content/themes/App-website/register.php'"></a>
-			</form>
+   		</form>
 		</div>
 		<div class="attibution">
 			&copy; 2018 pinpointwallet.com
