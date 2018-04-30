@@ -42,13 +42,29 @@
   <div class="dropdown">
     <button class="dropbtn">My wallet
       <i class="fa fa-caret-down"></i>
-    </button>
     <div class="dropdown-content">
-      <a href="#">Add wallet</a>
-      <a href="welcome.php">Ebony's wallet</a>
-      <a href="welcome.php">Nova's wallet</a>
-    </div>
-  </div> <button onclick="myFunction()">Wallet lock</button>
+      <a href="#">Wallet1
+		  <label for="1">wallet 1</label>
+        <input type="checkbox" id="1" onclick='handleClick(this)' /></a>
+
+         <a href="#">Wallet2
+		  <label for="2">wallet 2</label>
+        <input type="checkbox" id="2"  onclick='handleClick(this)'/></a>
+
+ 		<a href="#">Wallet3
+		  <label for="3">wallet 3</label>
+        <input type="checkbox" id="3"  onclick='handleClick(this)'/></a>
+
+ 		<a href="#">Wallet4
+		  <label for="4">wallet 4</label>
+        <input type="checkbox" id="4"  onclick='handleClick(this)'/></a>
+
+ 		<a href="#">Wallet5
+		  <label for="5">wallet 5</label>
+        <input type="checkbox" id="5"  onclick='handleClick(this)' /></a>
+
+        </div>
+  </div> <button id = "mywallet" onclick="myFunction()">Wallet lock</button>
      <li style="float:right"><a href="logout.php" class="btn btn-danger">Log out</a></li>
      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
     </div>
@@ -61,18 +77,37 @@
 <p id="demo"></p>
 
 <script>
+function handleClick(cb) {
+  setTimeout(function() {
+
+   var div = document.getElementById('Wallet' + cb.id);
+
+	if(cb.checked)
+		div.style.visibility = 'visible';
+	else
+		div.style.visibility = 'hidden';
+}, 0);
+}
+
 function myFunction() {
     var txt;
     if (confirm("Unlock wallet!")) {
         txt = "Wallet is unlocked!";
+		mywallet.style.backgroundColor = "green";
+		source.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+		target.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
     } else {
         txt = "Wallet is locked!";
+		mywallet.style.backgroundColor = "red";
+		source.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+		target.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
     }
     document.getElementById("demo").innerHTML = txt;
 }
 </script>
 
 <script>
+
 function myFunction() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
@@ -87,7 +122,7 @@ $("#draggable").draggable({helper: 'clone',
 stop: function(e) {
     var point=new google.maps.Point(e.pageX,e.pageY);
     var ll=overlay.getProjection().fromContainerPixelToLatLng(point);
-  alert('m');
+
     }
 });
 
@@ -108,7 +143,7 @@ stop: function(e) {
 
 
 
-<div id="map"  ondrop="drop(event)" ondragover="allowDrop(event)" alt="map close up on Pennsylvina">
+<div id="map"  ondrop="drop(event)" ondragover="allowDrop(event)" alt="map close up on Pennsylvaina">
 </div>
 
       <script>
@@ -334,11 +369,11 @@ function handleEvent(event) {
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMEpyiM9DEtj33Ph4LtqOKXU4-MZ2GWh4&callback=initMap"
     async defer></script>
 
-    <img id="Wallet1" height="150" width="150" src="wallet1.png" ondragstart="drag(event)"alt="navy closed wallet, can click and drag">
-	<img id="Wallet2" height="150" width="150" src="wallet2.png" ondragstart="drag(event)"alt="brown open wallet, can click and drag">
-	<img id="Wallet3" height="150" width="150" src="wallet3.png" ondragstart="drag(event)"alt="black thin wallet, can click and drag">
-	<img id="Wallet4" height="150" width="150" src="wallet4.png" ondragstart="drag(event)"alt="red closed wallet, can click and drag">
-	<img id="Wallet5" height="150" width="150" src="wallet5.png" ondragstart="drag(event)"alt="brown closed wallet, can click and drag">
+    <img id="Wallet1" height="150" width="150" src="wallet1.png" ondragstart="drag(event)" style="visibility:hidden"  alt="navy closed wallet, can click and drag">
+	<img id="Wallet2" height="150" width="150" src="wallet2.png" ondragstart="drag(event)" style="visibility:hidden"  alt="brown open wallet, can click and drag">
+	<img id="Wallet3" height="150" width="150" src="wallet3.png" ondragstart="drag(event)" style="visibility:hidden"  alt="black thin wallet, can click and drag">
+	<img id="Wallet4" height="150" width="150" src="wallet4.png" ondragstart="drag(event)" style="visibility:hidden"  alt="red closed wallet, can click and drag">
+	<img id="Wallet5" height="150" width="150" src="wallet5.png" ondragstart="drag(event)" style="visibility:hidden"  alt="brown closed wallet, can click and drag">
 		</div>
 	</div>
 	</div>

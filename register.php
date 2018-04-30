@@ -104,7 +104,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<head>
 		<title>Login</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<link rel="shortcut icon" href="img/logo.png"/>
 	</head>
 <body>
 	</div>
@@ -119,16 +118,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			<form method="post" action="" class="login-form">
 				<div class="input-container">
 					<i class="fa fa-envelope"></i>
-					<input type="username" class="input" name="user" placeholder="Username"/>
+					<label for="username">Create username</label>
+					<input type="username" id="username"  class="input" name="user" placeholder="Username"/>
 				</div>
 				<div class="input-container">
 					<i class="fa fa-lock"></i>
-					<input type="password"  id="login-password" class="input" name="password" placeholder="Password"/>
+					<label for="password">Create password</label>
+					<input type="password"  id="password" class="input" name="password" placeholder="Password"/>
 					<i id="show-password" class="fa fa-eye"></i>
 				</div>
 					<div class="input-container">
 					<i class="fa fa-lock"></i>
-					<input type="confimpassword"  id="login-password" class="input" name="password" placeholder="Confim Password"/>
+					<label for="confimpassword">Confirm password</label>
+					<input type="confimpassword"  id="confimpassword" class="input" name="password" placeholder="Confim Password"/>
 					<i id="show-password" class="fa fa-eye"></i>
 				</div>
 					<div class="rememberme-container">

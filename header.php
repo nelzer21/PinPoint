@@ -88,7 +88,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<head>
 		<title>Login</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<link rel="shortcut icon" href="img/logo.png"/>
 	</head>
 <body>
 	</div>
@@ -100,30 +99,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 				<h3>Welcome to PinPoint</h3>
 			</div>
-<!-- 			<form method="post" action="" class="login-form">
-  <fieldset>
-    <legend>Login form</legend>
-    <div>
-      <label for="username">Your username</label>
-	  <input type="text" id="username" aria-describedby="username-tip" required />
-	  <div role="tooltip" id="username-tip">Your username is your email address</div>
-	</div>
-	<div>
-	  <label for="password">Your password</label>
-	  <input type="text" id="password" aria-describedby="password-tip" required />
-	  <div role="tooltip" id="password-tip">Was emailed to you when you signed up</div>
-	</div>
-  </fieldset>
-</form> -->
 			<form method="post" action="" class="login-form">
 				<div class="input-container">
+					 <label for="username">Your username</label>
 					<i class="fa fa-envelope"></i>
-					<input type="username" class="input" name="user" placeholder="Username"/>
+					<input type="username" id = "username" class="input" name="user" placeholder="Username"/>
 				</div>
 				<div class="input-container">
 					<div class="input-container">
-
-					<input type="password" class="input" name="password" placeholder="Password" alt = "enter password"/>
+ 						<label for="password">Your password</label>
+					<input type="password" id="password" class="input" name="password" placeholder="Password" alt = "enter password"/>
 					<i id="show-password" class="fa fa-eye"></i>
 				</div>
 				<div class="rememberme-container">
